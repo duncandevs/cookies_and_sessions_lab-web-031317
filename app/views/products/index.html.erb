@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body>
+    <h1>Shopping Cart</h1>
+    <% @cart.each do |cart_item| %>
+    <li>
+      <%= cart_item %>
+    </li>
+    <% end %>
+    <form action="/add" method="post">
+      <input type="text" name="product">
+      <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+      <input type="submit" value="add to cart">
+    </form>
+  </body>
+
+</html>
+<!-- form posts to add_product_path -->
